@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convite - Miguel</title>
+  
+  <!-- Importação de fontes: Carter One para o H1 e Chakra Petch para o H2 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Chakra+Petch:ital,wght@1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Ícones do Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  html, body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+  }
+
+  body {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  /* --- PADRÃO DE CARRINHOS COM TAMANHO BEM REDUZIDO --- */
+  body::before {
+      content: "";
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      /* O viewBox estendido amplia a margem interna, reduzindo o carrinho */
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="-150 -150 812 812" fill="white" opacity="0.15"><path d="M499.99 176h-59.81l-48.11-73.34A32 32 0 0 0 365.31 88H146.69a32 32 0 0 0-26.76 14.66L71.82 176H12.01A12 12 0 0 0 0 188v140a12 12 0 0 0 12 12h18.23c7.87 46.88 48.6 84 97.77 84s89.9-37.12 97.77-84h60.46c7.87 46.88 48.6 84 97.77 84s89.9-37.12 97.77-84H500a12 12 0 0 0 12-12V188a12 12 0 0 0-12.01-12zM128 384c-30.88 0-56-25.12-56-56s25.12-56 56-56 56 25.12 56 56-25.12 56-56 56zm256 0c-30.88 0-56-25.12-56-56s25.12-56 56-56 56 25.12 56 56-25.12 56-56 56zm80-176H365.31l-36.71-56h36.71l36.7 56zm-176-56v56H224v-56h64zm-96 0v56h-64.01l36.71-56h27.3z"/></svg>');
+      background-repeat: repeat;
+      background-size: 120px 120px;
+      transform: rotate(45deg);
+      pointer-events: none;
+      z-index: 1;
+      /* Aplicação da animação */
+      animation: moverCarrinhos 20s linear infinite;
+  }
+
+  /* --- REGRAS DA ANIMAÇÃO DO FUNDO --- */
+  @keyframes moverCarrinhos {
+      0% {
+          background-position: 0 0;
+      }
+      100% {
+          background-position: 120px 120px;
+      }
+  }
+
+  /* --- CONTAINER DO CONVITE (RESPONSIVO) --- */
+  .card-convite {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 500px;
+      padding: 1.5rem;
+      margin: 0 auto;
+  }
+
+  /* --- ESTILIZAÇÃO DO H1 COM CARTER ONE --- */
+  h1 {
+      font-family: 'Carter One', cursive, sans-serif;
+      font-size: clamp(3rem, 11vw, 4.8rem);
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      /* Gradiente Amarelo/Vermelho estilo Hot Wheels */
+      background: linear-gradient(180deg, #fff000 20%, #ff2a00 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      /* Inclinação para manter a estética de velocidade */
+      transform: skewX(-10deg);
+      display: inline-block;
+      /* Sombra e contorno destacado */
+      filter: drop-shadow(3px 3px 0px #000) drop-shadow(-2px -2px 0px #000) drop-shadow(0px 8px 15px rgba(0,0,0,0.5));
+      margin-bottom: 0.2rem;
+  }
+
+  h2 {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: clamp(1.5rem, 6vw, 2.5rem);
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: #ffffff;
+      transform: skewX(-10deg);
+      letter-spacing: 1.5px;
+      text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 0px 4px 10px rgba(0,0,0,0.5);
+      margin-top: -0.5rem;
+      margin-bottom: 0.5rem;
+  }
+
+  p {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: clamp(1.25rem, 4vw, 2rem);
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: #ffffff;
+      transform: skewX(-10deg);
+      letter-spacing: 1.5px;
+      text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 0px 4px 10px rgba(0,0,0,0.5);
+      margin-top: -0.5rem;
+      margin-bottom: 1.5rem;
+  }
+
+  /* --- IMAGEM CENTRALIZADA RESPONSIVA --- */
+  .imagem-centralizada {
+      display: block;
+      margin: 1.2rem auto;
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      filter: drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.4));
+  }
+
+  /* --- ESTILIZAÇÃO DOS BOTÕES --- */
+  .botoes-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 1.5rem;
+  }
+
+  .btn-convite {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      font-style: italic;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #ffffff;
+      background: linear-gradient(90deg, #ff2a00 0%, #ff8800 100%);
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      transform: skewX(-10deg);
+      box-shadow: 3px 3px 0px #000, 0px 4px 10px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: transform 0.15s ease, filter 0.15s ease;
+  }
+
+  .btn-convite:hover {
+      filter: brightness(1.1);
+      transform: skewX(-10deg) scale(1.02);
+  }
+
+  .btn-convite:active {
+      transform: skewX(-10deg) scale(0.98);
+  }
+
+  .btn-convite i {
+      font-size: 1.3rem;
+  }
+
+  /* Div para o Texto Alternativo / Medidas para Presentes */
+  .texto-alternativo {
+      display: none;
+      margin-top: 1rem;
+      padding: 1.2rem;
+      background: rgba(0, 0, 0, 0.75);
+      border: 2px solid #fff000;
+      border-radius: 8px;
+      transform: skewX(-10deg);
+      box-shadow: 3px 3px 0px #000, 0px 4px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  .item-medida {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 12px;
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: clamp(1rem, 3.5vw, 1.2rem);
+      font-weight: 800;
+      font-style: italic;
+      text-transform: uppercase;
+      color: #fff000;
+      text-shadow: 2px 2px 0px #000;
+  }
+
+  .item-medida:first-child {
+      margin-bottom: 0.8rem;
+  }
+
+  .item-medida i {
+      font-size: 1.4rem;
+      color: #ff8800;
+      width: 25px;
+      text-align: center;
+      display: inline-block;
+  }
+
+  /* Rotaciona o ícone de calçado virando-o para cima */
+  .item-medida i.icone-calcado {
+      transform: rotate(-90deg);
+  }
+  </style>
+</head>
+<body>
+
+  <main class="card-convite">
+    <h1>Miguel</h1>
+    <h2>4 anos</h2>
+    
+    <img src="https://1000logos.net/wp-content/uploads/2020/09/Hot-Wheels-logo.png" 
+         alt="Hot Wheels Logo" 
+         class="imagem-centralizada">
+         
+    <p>Convidamos você para celebrarmos mais um ano de vida do Miguel. Contamos com sua presença!</p>
+
+    <!-- ÁREA DOS BOTÕES -->
+    <div class="botoes-container">
+      <!-- Botão 1: Data -->
+      <a href="#" class="btn-convite">
+        <i class="fa-regular fa-calendar-days"></i>
+        Data: 07/11/2026 - 16:00
+      </a>
+
+      <!-- Botão 2: Local -->
+      <a href="https://maps.app.goo.gl/7sAdEbULKgbC14JWA" class="btn-convite">
+        <i class="fa-solid fa-location-dot"></i>
+        Local: Rua Projetada Q32A - Anjo da Guarda
+      </a>
+
+      <!-- Botão 3: Medidas para presentes -->
+      <a href="javascript:void(0)" class="btn-convite" onclick="toggleTextoAlternativo()">
+        <i class="fa-solid fa-gift"></i>
+        Medidas para presentes
+      </a>
+    </div>
+
+    <!-- Div exibida ao clicar no botão "Medidas para presentes" -->
+    <div id="textoAlternativo" class="texto-alternativo">
+        Sua presença já é um presente! Caso queira presentear o Miguel com roupas ou calçados, abaixo estão as medidas: <br><br>
+      <div class="item-medida">
+        <i class="fa-solid fa-shirt"></i>
+        <span>Tamanho de Roupas: 5 anos</span>
+      </div>
+        <br>
+      <div class="item-medida">
+        <i class="fa-solid fa-shoe-prints icone-calcado"></i>
+        <span>Tamanho de Calçados: 29/30</span>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggleTextoAlternativo() {
+      const elemento = document.getElementById('textoAlternativo');
+      if (elemento.style.display === 'block') {
+        elemento.style.display = 'none';
+      } else {
+        elemento.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>
